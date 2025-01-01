@@ -8,6 +8,16 @@
       <p v-if="user.role === 'Borrower'">Loan Limit: {{ loanLimit }}</p>
       <!-- Display Loan Limit -->
 
+      <router-link v-if="user.role === 'Lender'" to="/invest">
+        <button>Invest</button>
+      </router-link>
+      <!-- Invest Button for Lenders -->
+
+      <router-link v-if="user.role === 'Lender'" to="/investment-history">
+        <button>Investment History</button>
+      </router-link>
+      <!-- Investment History Button for Lenders -->
+
       <button @click="logout">Logout</button>
       <!-- Logout Button -->
     </div>
@@ -50,8 +60,8 @@ export default {
       } catch (error) {
         console.error("Error logging out:", error);
       }
-    },
-  },
+    }
+  }
 };
 </script>
 
